@@ -4,7 +4,7 @@ describe("play tic-tac-toe and X wins", () => {
     });
 
     it("board is rendered", () => {
-        cy.get('[data-testid="square"]').should("have.length", 9);
+        cy.get("button[cell-index]").should("have.length", 9);
     });
 
     it("status is rendered", () => {
@@ -35,9 +35,7 @@ describe("play tic-tac-toe and X wins", () => {
         fourthSquare.click();
         thirdSquare.click();
         seventhSquare.click();
-        it("check if X wins", () => {
-            cy.get('div[data-testid="status"]').contains("X wins!");
-        });
+        cy.get('div[data-testid="status"]').contains("X wins!");
     });
 });
 
@@ -60,9 +58,7 @@ describe("play tic-tac-toe and O wins", () => {
         fifthSquare.click();
         thirdSquare.click();
         eighthSquare.click();
-        it("check if O wins", () => {
-            cy.get('div[data-testid="status"]').contains("O wins!");
-        });
+        cy.get('div[data-testid="status"]').contains("O wins!");
     });
 });
 
@@ -91,8 +87,6 @@ describe("play tic-tac-toe and draw", () => {
         sixthSquare.click();
         ninthSquare.click();
         seventhSquare.click();
-        it("check if it's a draw", () => {
-            cy.get('div[data-testid="status"]').contains("It's a draw!");
-        });
+        cy.get('div[data-testid="status"]').contains("It's a draw!");
     });
 });
