@@ -1,10 +1,10 @@
 describe("play tic-tac-toe and X wins", () => {
     it("visit url", () => {
-        cy.visit("http://localhost:3000");
+        cy.visit("http://localhost:3000/");
     });
 
     it("board is rendered", () => {
-        cy.get("button.square").should("have.length", 9);
+        cy.get('[data-testid="square"]').should("have.length", 9);
     });
 
     it("status is rendered", () => {
