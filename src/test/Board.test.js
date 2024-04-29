@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Board from "../component/Board";
 
 describe("Board is having 9 squares", () => {
@@ -16,9 +16,9 @@ describe("X & O is printed on the board", () => {
     it("renders X & O on the board", () => {
         render(<Board />);
         const squares = screen.getAllByRole("button");
-        squares[0].click();
+        fireEvent.click(squares[0]);
         expect(squares[0]).toHaveTextContent("X");
-        squares[1].click();
+        fireEvent.click(squares[1]);
         expect(squares[1]).toHaveTextContent("O");
     });
 });
