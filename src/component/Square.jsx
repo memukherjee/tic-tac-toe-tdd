@@ -1,6 +1,11 @@
-export default function Square({ value, onClick }) {
+export default function Square({ value, onClick, index }) {
     return (
-        <button className="square" data-testid="square" onClick={onClick}>
+        <button
+            className="square"
+            cell-index={index}
+            data-testid={`cell-${index}`}
+            onClick={onClick}
+        >
             {value}
         </button>
     );
