@@ -12,7 +12,7 @@ describe("Board is present", () => {
 describe("Check the status text", () => {
     it("renders the status text", () => {
         render(<App />);
-        const status = screen.getByTestId("status");
+        const status = screen.getByTestId("status").textContent;
         expect(status).toContain("Next player: X");
     });
 });
