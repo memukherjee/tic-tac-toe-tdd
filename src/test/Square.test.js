@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Square from "../components/Square";
+import Square from "../component/Square";
 
 describe("Square is having X & O", () => {
     it("renders X & O on the square", () => {
