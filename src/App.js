@@ -1,5 +1,7 @@
+import Board from "./component/Board";
+
 function App() {
-    return <div className="Game"></div>;
+    return <Board />;
 }
 
 export default App;
