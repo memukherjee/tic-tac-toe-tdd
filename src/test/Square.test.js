@@ -1,21 +1,31 @@
 import { render, screen } from "@testing-library/react";
 import Square from "../component/Square";
+import { useState } from "react";
 
 describe("Square is having X & O", () => {
-    it("renders X & O on the square", () => {
-        const onPlay = jest.fn();
-        render(<Square value="X" onClick={onPlay} />);
-        const square = screen.getByRole("button");
-        expect(square).toHaveTextContent("X");
-    });
+  it("renders X & O on the square", () => {
+    const onPlay = jest.fn();
+    render(<Square value="X" onClick={onPlay} />);
+    const square = screen.getByRole("button");
+    expect(square).toHaveTextContent("X");
+  });
 });
 
-describe("Square onClick event", () => {
-    it("calls the onClick event", () => {
-        const onPlay = jest.fn();
-        render(<Square value="" onClick={onPlay} />);
-        const square = screen.getByRole("button");
-        square.click();
-        expect(onPlay).toHaveBeenCalled();
-    });
+describe("Outcome of onClick event", () => {
+  it("calls the onClick event", () => {
+    const onPlay = jest.fn();
+    render(<Square value="" onClick={onPlay} />);
+    const square = screen.getByRole("button");
+    square.click();
+    expect(onPlay).toHaveBeenCalled();
+  });
+
+  it("changes the square to given value on click", () => {
+    const [value, setValue] = useState("");
+    const onPlay = () => setValue("X");
+    render(<Square value={value} onClick={onPlay} />);
+    const square = screen.getByRole("button");
+    square.click();
+    expect(square).toHaveTextContent("X");
+  });
 });
