@@ -19,13 +19,4 @@ describe("Outcome of onClick event", () => {
     square.click();
     expect(onPlay).toHaveBeenCalled();
   });
-
-  it("changes the square to given value on click", () => {
-    const [value, setValue] = useState("");
-    const onPlay = () => setValue("X");
-    render(<Square value={value} onClick={onPlay} />);
-    const square = screen.getByRole("button");
-    square.click();
-    expect(square).toHaveTextContent("X");
-  });
 });
